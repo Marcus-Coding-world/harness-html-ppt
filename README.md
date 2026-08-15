@@ -65,5 +65,3 @@ html-courseware/
 - **加新页**：在 `slides/` 新增 HTML 片段，追加到 `slideFiles[]` 与 `slideTitles[]`，同步更新 `slide_structure.json`
 
 CSS 变量定义在 `css/main.css`（`--primary` / `--accent` / `--card-bg` / `--card-border` 等），所有 slide 共享这套变量，不要在 slide 内部硬编码色值。
-
-# 最全AI大模型资源+V备用：2459407208
