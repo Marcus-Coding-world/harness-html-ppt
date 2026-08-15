@@ -1,0 +1,100 @@
+<!-- S027 AI 大模型应用新架构（assets/ai.png） -->
+<style>
+  #s27-wrap {
+    width: 100%;
+    max-width: min(1180px, 96vw);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: calc(100vh - 4.5rem);
+  }
+  #s27-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.35rem, 2.5vw, 2rem);
+    font-weight: 700;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: .35rem;
+    flex-shrink: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity .55s ease, transform .55s ease;
+  }
+  #s27-figure {
+    margin: 0;
+    padding: .35rem .5rem .6rem;
+    background: rgba(255,255,255,.55);
+    backdrop-filter: blur(12px);
+    border: 1.5px solid var(--card-border);
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(45,90,122,.08);
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    opacity: 0;
+    transition: opacity .55s ease .12s;
+  }
+  #s27-figure.visible { opacity: 1; }
+  #s27-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 7.5rem);
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  #s27-fallback {
+    display: none;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    color: var(--text-dim);
+    font-size: clamp(.82rem, 1.1vw, .95rem);
+    line-height: 1.6;
+  }
+  #s27-fallback code {
+    font-size: .88em;
+    background: rgba(45,90,122,.08);
+    padding: .12rem .35rem;
+    border-radius: 4px;
+    color: var(--primary);
+  }
+</style>
+
+<div id="s27-wrap">
+  <div id="s27-title">AI 大模型应用新架构</div>
+  <figure id="s27-figure">
+    <img id="s27-img" src="assets/ai.png" alt="AI 大模型应用新架构示意图" />
+    <div id="s27-fallback">
+      未找到图片文件，请将架构图放到课件根目录<br />
+      <code>assets/ai.png</code>
+    </div>
+  </figure>
+</div>
+
+<script>
+(function () {
+  var title = document.getElementById('s27-title');
+  var figure = document.getElementById('s27-figure');
+  var img = document.getElementById('s27-img');
+  var fb = document.getElementById('s27-fallback');
+  img.addEventListener('error', function () {
+    img.style.display = 'none';
+    fb.style.display = 'block';
+    figure.classList.add('visible');
+  });
+  img.addEventListener('load', function () {
+    figure.classList.add('visible');
+  });
+  if (img.complete && img.naturalWidth > 0) {
+    figure.classList.add('visible');
+  }
+  setTimeout(function () {
+    title.style.opacity = '1';
+    title.style.transform = 'translateY(0)';
+  }, 120);
+})();
+</script>
